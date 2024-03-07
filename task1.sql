@@ -1,0 +1,370 @@
+DO $$
+DECLARE -- Обработка файла средствами postgres sql вызывала ошибки связанные с наполнением xml
+-- 			файла по этому использовал кусок файла
+	record XML;
+	xml_data XML :='
+<ZL_LIST xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schet.xsd">
+	<SCHET>
+		<CODE_MO>630177</CODE_MO>
+		<YEAR>2018</YEAR>
+		<MONTH>1</MONTH>
+		<PLAT>63001</PLAT>
+		<COMENTS>TO_PLAT</COMENTS>
+		<SLUCH>
+			<ID_SLUCH>032916C1-6D4B-4032-9FB7-435A373D4FDB</ID_SLUCH>
+			<PR_NOV>0</PR_NOV>
+			<VIDPOM>31</VIDPOM>
+			<MODDATE>2018-02-01T09:52:08</MODDATE>
+			<BEGDATE>2018-01-02T00:00:00</BEGDATE>
+			<ENDDATE>2018-01-30T00:00:00</ENDDATE>
+			<MO_CUSTOM>630061</MO_CUSTOM>
+			<LPUBASE>4098</LPUBASE>
+			<ID_STAT>1</ID_STAT>
+			<SMO>63001</SMO>
+			<SMO_OK>36000</SMO_OK>
+			<PD>
+				<PDT>1</PDT>
+				<ENP>6368636863686368</ENP>
+				<W>1</W>
+				<DR>1948-01-01</DR>
+				<VPOLIS>3</VPOLIS>
+<NPOLIS>6368636863686368</NPOLIS>
+<FAM>ИВАНОВ</FAM>
+<IM>ИВАН</IM>
+<OT>ИВАНОВИЧ</OT>
+<DOCTYPE>14</DOCTYPE>
+<DOCSER>36 36</DOCSER>
+<DOCNUM>363636</DOCNUM>
+<OKATOG>364403680001</OKATOG>
+</PD>
+<LPUCODE>10772</LPUCODE>
+<NPR_MO>630061</NPR_MO>
+<NPR_TYPE>1</NPR_TYPE>
+<NPR_MDCODE>П302125</NPR_MDCODE>
+<EXTR>1</EXTR>
+<NHISTORY>115/18</NHISTORY>
+<DS>
+<DS_WAY>N18.5</DS_WAY>
+<DS_IN>N18.5</DS_IN>
+<DS_MAIN>N18.5</DS_MAIN>
+</DS>
+<RSLT>201</RSLT>
+<ISHOD>203</ISHOD>
+<PRVS>261</PRVS>
+<PROFIL>56</PROFIL>
+<DET>0</DET>
+<IDDOKT>В530071</IDDOKT>
+<DISP/>
+<SIGNPAY>1</SIGNPAY>
+<IDSP>43</IDSP>
+<GRP_SK>65</GRP_SK>
+<OPLATA>0</OPLATA>
+<ED_COL>1</ED_COL>
+<P_PER>1</P_PER>
+<PODR>10772001</PODR>
+<NPR_DATE>2018-01-01</NPR_DATE>
+<USL_OK>2</USL_OK>
+<SUMSLUCH>
+<SUMV>83720</SUMV>
+</SUMSLUCH>
+<COMENTSL>201.02.18INSURER</COMENTSL>
+<USL>
+<ID_USL>102157F5-6D3F-4341-85CF-B49E7C793CF6</ID_USL>
+<CODE_USL>700301</CODE_USL>
+<PRVS>261</PRVS>
+<DATEUSL>2018-01-09</DATEUSL>
+<CODE_MD>В530071</CODE_MD>
+<SKIND>35</SKIND>
+<TYPEOPER>8</TYPEOPER>
+<PODR>10772001</PODR>
+<PROFIL>56</PROFIL>
+<DET>0</DET>
+<BEDPROF>78</BEDPROF>
+<KOL_USL>1</KOL_USL>
+<SUMUSL>
+<TARIF>6440</TARIF>
+</SUMUSL>
+</USL>
+<USL>
+<ID_USL>2B3AB183-9D16-4FE8-8595-F66E9E7C5EE2</ID_USL>
+<CODE_USL>700301</CODE_USL>
+<PRVS>261</PRVS>
+<DATEUSL>2018-01-20</DATEUSL>
+<CODE_MD>В530071</CODE_MD>
+<SKIND>35</SKIND>
+<TYPEOPER>8</TYPEOPER>
+<PODR>10772001</PODR>
+<PROFIL>56</PROFIL>
+<DET>0</DET>
+<BEDPROF>78</BEDPROF>
+<KOL_USL>1</KOL_USL>
+<SUMUSL>
+<TARIF>6440</TARIF>
+</SUMUSL>
+</USL>
+<USL>
+<ID_USL>315D2962-6587-4EE2-9E7C-2D6EB4C6E6E3</ID_USL>
+<CODE_USL>700301</CODE_USL>
+<PRVS>261</PRVS>
+<DATEUSL>2018-01-02</DATEUSL>
+<CODE_MD>В530071</CODE_MD>
+<SKIND>35</SKIND>
+<TYPEOPER>8</TYPEOPER>
+<PODR>10772001</PODR>
+<PROFIL>56</PROFIL>
+<DET>0</DET>
+<BEDPROF>78</BEDPROF>
+<KOL_USL>1</KOL_USL>
+<SUMUSL>
+<TARIF>6440</TARIF>
+</SUMUSL>
+</USL>
+<USL>
+<ID_USL>428716DA-D6A4-48E8-A316-FA074602863D</ID_USL>
+<CODE_USL>700301</CODE_USL>
+<PRVS>261</PRVS>
+<DATEUSL>2018-01-27</DATEUSL>
+<CODE_MD>В530071</CODE_MD>
+<SKIND>35</SKIND>
+<TYPEOPER>8</TYPEOPER>
+<PODR>10772001</PODR>
+<PROFIL>56</PROFIL>
+<DET>0</DET>
+<BEDPROF>78</BEDPROF>
+<KOL_USL>1</KOL_USL>
+<SUMUSL>
+<TARIF>6440</TARIF>
+</SUMUSL>
+</USL>
+<USL>
+<ID_USL>51F0612B-C8C2-4EB9-9B20-FC9AB37582E0</ID_USL>
+<CODE_USL>700301</CODE_USL>
+<PRVS>261</PRVS>
+<DATEUSL>2018-01-23</DATEUSL>
+<CODE_MD>В530071</CODE_MD>
+<SKIND>35</SKIND>
+<TYPEOPER>8</TYPEOPER>
+<PODR>10772001</PODR>
+<PROFIL>56</PROFIL>
+<DET>0</DET>
+<BEDPROF>78</BEDPROF>
+<KOL_USL>1</KOL_USL>
+<SUMUSL>
+<TARIF>6440</TARIF>
+</SUMUSL>
+</USL>
+<USL>
+<ID_USL>678CD1D6-5F7D-47E3-BC60-6FA8E3C9D806</ID_USL>
+<CODE_USL>700301</CODE_USL>
+<PRVS>261</PRVS>
+<DATEUSL>2018-01-30</DATEUSL>
+<CODE_MD>В530071</CODE_MD>
+<SKIND>35</SKIND>
+<TYPEOPER>8</TYPEOPER>
+<PODR>10772001</PODR>
+<PROFIL>56</PROFIL>
+<DET>0</DET>
+<BEDPROF>78</BEDPROF>
+<KOL_USL>1</KOL_USL>
+<SUMUSL>
+<TARIF>6440</TARIF>
+</SUMUSL>
+</USL>
+<USL>
+<ID_USL>6C998351-C2BC-4FDC-AB62-2862FECE260E</ID_USL>
+<CODE_USL>700301</CODE_USL>
+<PRVS>261</PRVS>
+<DATEUSL>2018-01-13</DATEUSL>
+<CODE_MD>В530071</CODE_MD>
+<SKIND>35</SKIND>
+<TYPEOPER>8</TYPEOPER>
+<PODR>10772001</PODR>
+<PROFIL>56</PROFIL>
+<DET>0</DET>
+<BEDPROF>78</BEDPROF>
+<KOL_USL>1</KOL_USL>
+<SUMUSL>
+<TARIF>6440</TARIF>
+</SUMUSL>
+</USL>
+<USL>
+<ID_USL>757BA9F6-BA1B-4BD7-8E40-FCDF94C801B2</ID_USL>
+<CODE_USL>700301</CODE_USL>
+<PRVS>261</PRVS>
+<DATEUSL>2018-01-18</DATEUSL>
+<CODE_MD>В530071</CODE_MD>
+<SKIND>35</SKIND>
+<TYPEOPER>8</TYPEOPER>
+<PODR>10772001</PODR>
+<PROFIL>56</PROFIL>
+<DET>0</DET>
+<BEDPROF>78</BEDPROF>
+<KOL_USL>1</KOL_USL>
+<SUMUSL>
+<TARIF>6440</TARIF>
+</SUMUSL>
+</USL>
+<USL>
+<ID_USL>9DEB0F51-C2E3-4706-B822-19C89B561777</ID_USL>
+<CODE_USL>700301</CODE_USL>
+<PRVS>261</PRVS>
+<DATEUSL>2018-01-04</DATEUSL>
+<CODE_MD>В530071</CODE_MD>
+<SKIND>35</SKIND>
+<TYPEOPER>8</TYPEOPER>
+<PODR>10772001</PODR>
+<PROFIL>56</PROFIL>
+<DET>0</DET>
+<BEDPROF>78</BEDPROF>
+<KOL_USL>1</KOL_USL>
+<SUMUSL>
+<TARIF>6440</TARIF>
+</SUMUSL>
+</USL>
+<USL>
+<ID_USL>E1BBC39E-EB56-49B8-BC56-194589448603</ID_USL>
+<CODE_USL>700301</CODE_USL>
+<PRVS>261</PRVS>
+<DATEUSL>2018-01-06</DATEUSL>
+<CODE_MD>В530071</CODE_MD>
+<SKIND>35</SKIND>
+<TYPEOPER>8</TYPEOPER>
+<PODR>10772001</PODR>
+<PROFIL>56</PROFIL>
+<DET>0</DET>
+<BEDPROF>78</BEDPROF>
+<KOL_USL>1</KOL_USL>
+<SUMUSL>
+<TARIF>6440</TARIF>
+</SUMUSL>
+</USL>
+<USL>
+<ID_USL>E1CE4C84-5622-4417-A62C-A1CEF469DAE8</ID_USL>
+<CODE_USL>700301</CODE_USL>
+<PRVS>261</PRVS>
+<DATEUSL>2018-01-11</DATEUSL>
+<CODE_MD>В530071</CODE_MD>
+<SKIND>35</SKIND>
+<TYPEOPER>8</TYPEOPER>
+<PODR>10772001</PODR>
+<PROFIL>56</PROFIL>
+<DET>0</DET>
+<BEDPROF>78</BEDPROF>
+<KOL_USL>1</KOL_USL>
+<SUMUSL>
+<TARIF>6440</TARIF>
+</SUMUSL>
+</USL>
+<USL>
+<ID_USL>EFD0BE46-5457-4ABE-B48C-3F7679628A54</ID_USL>
+<CODE_USL>700301</CODE_USL>
+<PRVS>261</PRVS>
+<DATEUSL>2018-01-16</DATEUSL>
+<CODE_MD>В530071</CODE_MD>
+<SKIND>35</SKIND>
+<TYPEOPER>8</TYPEOPER>
+<PODR>10772001</PODR>
+<PROFIL>56</PROFIL>
+<DET>0</DET>
+<BEDPROF>78</BEDPROF>
+<KOL_USL>1</KOL_USL>
+<SUMUSL>
+<TARIF>6440</TARIF>
+</SUMUSL>
+</USL>
+<USL>
+<ID_USL>F010B1BE-0586-4404-8519-9BF92A4B3809</ID_USL>
+<CODE_USL>700301</CODE_USL>
+<PRVS>261</PRVS>
+<DATEUSL>2018-01-25</DATEUSL>
+<CODE_MD>В530071</CODE_MD>
+<SKIND>35</SKIND>
+<TYPEOPER>8</TYPEOPER>
+<PODR>10772001</PODR>
+<PROFIL>56</PROFIL>
+<DET>0</DET>
+<BEDPROF>78</BEDPROF>
+<KOL_USL>1</KOL_USL>
+<SUMUSL>
+<TARIF>6440</TARIF>
+</SUMUSL>
+</USL>
+</SLUCH>
+</SCHET>
+</ZL_LIST>';
+
+BEGIN
+	FOR record IN SELECT UNNEST(xpath('/ZL_LIST/SCHET', xml_data)) LOOP
+		INSERT INTO test.SCHET(CODE_MO, YEAR,MONTH,PLAT,COMMENTS) VALUES (
+		(xpath('/SCHET/CODE_MO/text()',record))[1]::text::varchar(6),
+		(xpath('/SCHET/YEAR/text()',record))[1]::text::numeric(4),
+		(xpath('/SCHET/MONTH/text()',record))[1]::text::numeric(2),
+		(xpath('/SCHET/PLAT/text()',record))[1]::text::varchar(5),
+		(xpath('/SCHET/COMENTS/text()',record))[1]::text::varchar(6)
+		);
+	END LOOP;
+
+	FOR record IN SELECT UNNEST(xpath('/ZL_LIST/SCHET', xml_data)) LOOP
+		INSERT INTO test.SLUCH(ID_SLUCH,ID_SCHET, PR_NOV,VIDPOM,MODDATE,BEGDATE,ENDDATE,MO_CUSTOM,
+							   LPUBASE,ID_STAT,SMO,SMO_OK,LPUCODE,NRP_MO,NRP_TYPE,NRP_MDCODE,EXTR,NHISTORY,RSLT,ISHOD,PRVS,PROFIL,DET,
+							   IDDOKT,SIGNPAY,IDSP,GRP_SK,OPLATA,ED_COL,P_PER,PODR,NPR_DATE,USL_OK,COMENTSL) VALUES (
+		(xpath('/SCHET/SLUCH/ID_SCLUCH/text()',record))[1]::text::varchar(36),
+		(xpath('/SCHET/CODE_MO/text()',record))[1]::text::varchar(6),
+		(xpath('/SCHET/SLUCH/PR_NOV/text()',record))[1]::text::numeric,
+		(xpath('/SCHET/SLUCH/VIDPOM/text()',record))[1]::text::numeric,
+		(xpath('/SCHET/SLUCH/MODDATE/text()',record))[1]::text::date,
+		(xpath('/SCHET/SLUCH/BEGDATE/text()',record))[1]::text::date,
+		(xpath('/SCHET/SLUCH/ENDDATE/text()',record))[1]::text::date,
+		(xpath('/SCHET/SLUCH/MO_CUSTOM/text()',record))[1]::text::varchar(6),
+		(xpath('/SCHET/SLUCH/LPUBASE/text()',record))[1]::text::numeric,
+		(xpath('/SCHET/SLUCH/ID_STAT/text()',record))[1]::text::numeric,
+		(xpath('/SCHET/SLUCH/SMO/text()',record))[1]::text::varchar(5),
+		(xpath('/SCHET/SLUCH/SMO_OK/text()',record))[1]::text::varchar(5),
+		(xpath('/SCHET/SLUCH/LPUCODE/text()',record))[1]::text::numeric,
+		(xpath('/SCHET/SLUCH/NRP_MO/text()',record))[1]::text::varchar(6),
+		(xpath('/SCHET/SLUCH/NRP_TYPE/text()',record))[1]::text::numeric,
+		(xpath('/SCHET/SLUCH/NRP_MDCODE/text()',record))[1]::text::varchar(8),
+		(xpath('/SCHET/SLUCH/EXTR/text()',record))[1]::text::numeric,
+		(xpath('/SCHET/SLUCH/NHISTORY/text()',record))[1]::text::varchar(50),
+		(xpath('/SCHET/SLUCH/RSLT/text()',record))[1]::text::numeric,
+		(xpath('/SCHET/SLUCH/ISHOD/text()',record))[1]::text::numeric,
+		(xpath('/SCHET/SLUCH/PRVS/text()',record))[1]::text::numeric,
+		(xpath('/SCHET/SLUCH/PROFIL/text()',record))[1]::text::varchar(11),
+		(xpath('/SCHET/SLUCH/DET/text()',record))[1]::text::numeric,
+		(xpath('/SCHET/SLUCH/IDDOKT/text()',record))[1]::text::varchar(8),
+		(xpath('/SCHET/SLUCH/SIGNPAY/text()',record))[1]::text::numeric,
+		(xpath('/SCHET/SLUCH/IDSP/text()',record))[1]::text::numeric,
+		(xpath('/SCHET/SLUCH/GRP_SK/text()',record))[1]::text::numeric,
+		(xpath('/SCHET/SLUCH/OPLATA/text()',record))[1]::text::numeric,
+		(xpath('/SCHET/SLUCH/ED_COL/text()',record))[1]::text::numeric,
+		(xpath('/SCHET/SLUCH/P_PER/text()',record))[1]::text::numeric,
+		(xpath('/SCHET/SLUCH/PODR/text()',record))[1]::text::numeric,
+		(xpath('/SCHET/SLUCH/NPR_DATE/text()',record))[1]::text::date,
+		(xpath('/SCHET/SLUCH/USL_OK/text()',record))[1]::text::numeric,
+		(xpath('/SCHET/SLUCH/COMENTSL/text()',record))[1]::text::varchar(250)
+		);
+	END LOOP;
+	
+	FOR record IN SELECT UNNEST(xpath('/ZL_LIST/SCHET/SLUCH', xml_data)) LOOP
+		INSERT INTO test.USL(ID_USL,SLUCH_ID, CODE_USL,PRVS,DATEUSL,
+							 CODE_MD,SKIND,TYPEOPER,PODR,
+							 PROFIL,DET,BEDPROF,KOL_USL) VALUES (
+		(xpath('/SLUCH/USL/ID_USL/text()',record))[1]::text::varchar(36),
+		(xpath('/SLUCH/ID_SLUCH/text()',record))[1]::text::varchar(36),
+		(xpath('/SCHET/USL/CODE_USL/text()',record))[1]::text::varchar(16),
+		(xpath('/SCHET/USL/PRVS/text()',record))[1]::text::numeric(9),
+		(xpath('/SCHET/USL/DATEUSL/text()',record))[1]::text::date,
+		(xpath('/SCHET/USL/CODE_MD/text()',record))[1]::text::varchar(8),
+		(xpath('/SCHET/USL/SKIND/text()',record))[1]::text::numeric(8),
+		(xpath('/SCHET/USL/TYPEOPER/text()',record))[1]::text::numeric(3),
+		(xpath('/SCHET/USL/PODR/text()',record))[1]::text::numeric(8),
+		(xpath('/SCHET/USL/PROFIL/text()',record))[1]::text::varchar(11),
+		(xpath('/SCHET/USL/DET/text()',record))[1]::text::numeric(1),
+		(xpath('/SCHET/USL/BEDPROF/text()',record))[1]::text::numeric(3),
+		(xpath('/SCHET/USL/KOL_USL/text()',record))[1]::text::numeric
+		);
+	END LOOP;
+END $$;
+
+-- Можно было воспользоваться функций xmltable,
+-- но поскольку данные должны вноситься после создания таблицу, перешел на циклы.
